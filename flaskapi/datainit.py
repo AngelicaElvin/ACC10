@@ -30,13 +30,15 @@ key = "zeelabkey"
 floating_ip_pool_name = "Public External IPv4 Network"
 loader = loading.get_plugin_loader('password')
 
-auth = loader.load_from_options(auth_url="https://hpc2n.cloud.snic.se:5000/v3",
-                                username="s11778",
-                                password="Zee_279000",
-                                project_name="SNIC 2018/10-30",
-                                project_domain_name="snic",
-                                project_id="ad5091c4f42e4defb98eb9550f875f4f",
-                                user_domain_name="snic")
+
+
+auth = loader.load_from_options(auth_url=env['OS_AUTH_URL'],
+                                username=env['OS_USERNAME'],
+                                password=env['OS_PASSWORD'],
+                                project_name=env['OS_PROJECT_NAME'],
+                                project_domain_name=env['OS_USER_DOMAIN_NAME'],
+                                project_id=env['OS_PROJECT_ID'],
+                                user_domain_name=env['OS_USER_DOMAIN_NAME'])
 
 sess = session.Session(auth=auth)
 nova = client.Client('2.1', session=sess)
