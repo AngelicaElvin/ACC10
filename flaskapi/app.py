@@ -18,14 +18,12 @@ app = Flask(__name__)
 @app.route('/QTLaaS/api/create', methods=['GET'])
 def create():
     C.vmcreate()
-    #data=subprocess.check_output(["cowsay","Hello student"])
-    return "data"
+    return "message"
 
 @app.route('/QTLaaS/api/delete', methods=['GET'])
 def delete():
     D.vmdelete()
-    #data=subprocess.check_output(["cowsay","Hello student"])
-    return "data"
+    return "message"
     
 if __name__ == '__main__':
     
