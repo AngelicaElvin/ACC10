@@ -1,0 +1,40 @@
+#cloud-config
+
+apt_update: true
+apt_upgrade: true
+packages:
+ - cowsay
+ - python-pip
+ - python-dev
+ - build-essential
+ - cowsay
+byobu_default: system 
+
+
+
+
+
+
+runcmd:
+ - echo "export PATH=$PATH:/usr/games" >> /home/ubuntu/.bashrc  
+ - source /home/ubuntu/.bashrc
+ - pip install Flask
+ - python /home/ubuntu/cowsay-app.py & 
+ - echo -e "\n"|ssh-keygen -t rsa -N ""
+ - cd /home/ubuntu/
+ - git clone https://github.com/Zee2790/acc10.git
+ - cd /home/ubuntu/acc10
+ - chmod +x  cmd.sh
+ - cd /home/ubuntu/acc10
+ - ./cmd.sh
+ - cd /home/ubuntu/
+ - git clone https://github.com/QTLaaS/QTLaaS.git
+ - cd /home/ubuntu/QTLaaS
+ - ./ansible_install.sh
+ - cp /home/ubuntu/.ssh/authorized_keys  /home/ubuntu/acc10/
+
+
+
+
+
+
