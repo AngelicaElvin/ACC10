@@ -1,6 +1,7 @@
 
 from datainit import *
 
+######## this module get the floating and private IP
 
 def searchserver(servername):
 

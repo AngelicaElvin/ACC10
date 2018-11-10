@@ -1,6 +1,8 @@
 import os
 import subprocess
 
+##### this module convert current Machine to ansible master
+
 def ansiblemaster():
         path = "/home/ubuntu/"
 

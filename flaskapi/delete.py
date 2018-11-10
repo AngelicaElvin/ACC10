@@ -2,7 +2,7 @@
 from datainit import *
 ############
 
-#############
+############# this module delete VM
 
 def vmdelete(servername):
     servers_list = nova.servers.list()

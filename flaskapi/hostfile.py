@@ -1,5 +1,6 @@
 from datainit import *
 
+##### edit hosts file 
 
 def hostfileedit(fixed_ip1):
     with open('/etc/hosts', 'rt') as f:

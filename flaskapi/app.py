@@ -14,19 +14,22 @@ import ansible_master as A
 import fileupload_otherserver as F
 app = Flask(__name__)
 
-
+#### convert existing server to ansible_master api
 
 @app.route('/QTLaaS/api/create_ansiblemaster', methods=['GET'])
 def createansible():
     A.ansiblemaster()
     return "message"
 
+#### Create new VM  api
 
 @app.route('/QTLaaS/api/create', methods=['GET'])
 def create():
     servername = request.args.get('server')
     C.vmcreate(servername)
     return "message"
+
+#### delete  VM api
 
 @app.route('/QTLaaS/api/delete', methods=['GET'])
 def delete():
@@ -36,7 +39,7 @@ def delete():
     return "message"
 
 
-    
+#### file upload other server api    
 @app.route('/uploader', methods = [ 'GET' , 'POST'])
 def upload_file():
     if request.method == 'POST':

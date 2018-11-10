@@ -20,10 +20,6 @@ def vmcreate(servername):
            sys.exit("private-net not defined.")
 
         K.getkey()
-        #if not nova.keypairs.findall(name="mynewkey1"):
-           #with open(os.path.expanduser('~/.ssh/id_rsa.pub')) as fpubkey:
-                #nova.keypairs.create(name="mynewkey1", public_key=fpubkey.read())
-        
         
         cfg_file_path =  os.getcwd()+'/cloud-cfg.txt'
         if os.path.isfile(cfg_file_path):

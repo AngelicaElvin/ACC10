@@ -16,7 +16,7 @@ from keystoneauth1 import session
 import novaclient.v2.client as nvclient
 
 
-############
+############ this module data initialize
 
 #############
 
