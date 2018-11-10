@@ -4,12 +4,13 @@ from datainit import *
 
 #############
 
-def vmdelete():
+def vmdelete(servername):
     servers_list = nova.servers.list()
-    server_del = "vm49"
+    server_del = servername
     server_exists = False
-
+    print servername
     for s in servers_list:
+        print s
         if s.name == server_del:
            print("This server %s exists" % server_del)
            server_exists = True

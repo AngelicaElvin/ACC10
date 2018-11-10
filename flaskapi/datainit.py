@@ -5,7 +5,7 @@ import inspect
 #from credentials import get_nova_creds
 from os import environ as env
 #import shade
-
+import subprocess
 from  novaclient import client
 import keystoneclient.v3.client as ksclient
 #from credentials import get_credentials
@@ -31,14 +31,14 @@ floating_ip_pool_name = "Public External IPv4 Network"
 loader = loading.get_plugin_loader('password')
 
 
-
 auth = loader.load_from_options(auth_url=env['OS_AUTH_URL'],
-                                username=env['OS_USERNAME'],
-                                password=env['OS_PASSWORD'],
-                                project_name=env['OS_PROJECT_NAME'],
-                                project_domain_name=env['OS_USER_DOMAIN_NAME'],
-                                project_id=env['OS_PROJECT_ID'],
-                                user_domain_name=env['OS_USER_DOMAIN_NAME'])
+                               username=env['OS_USERNAME'],
+                               password=env['OS_PASSWORD'],
+                               project_name=env['OS_PROJECT_NAME'],
+                               project_domain_name=env['OS_USER_DOMAIN_NAME'],
+                               project_id=env['OS_PROJECT_ID'],
+                               user_domain_name=env['OS_USER_DOMAIN_NAME'])
+
 
 sess = session.Session(auth=auth)
 nova = client.Client('2.1', session=sess)
